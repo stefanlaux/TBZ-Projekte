@@ -1,6 +1,9 @@
-import java.util.*;
-class secondary {
+import tbz.Input;
 
+import java.util.*;
+class Main {
+
+    // Our main function which runs the program12
     public static void main(String[] args ) {
         int min = 0;
         int max = 100;
@@ -40,8 +43,7 @@ class secondary {
             int counter = 0;
             do {
                 if (counter == 0) {
-                    resultUsr =
-                            Input.inputInt("Antwort: ");
+                    resultUsr = Input.inputInt("Antwort: ");
                     counter++;
                 } else {
                     resultUsr = Input.inputInt("Antwort falsch try again: ");
