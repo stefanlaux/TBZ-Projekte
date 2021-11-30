@@ -1,0 +1,11 @@
+Modul	Prüfung 1	Prüfung 2	Prüfung 3	Durchschnitt	Zeugnisnote	Abweichung zur Note 4
+mxx1	3.2	4.5		3.85	4	0
+mxx2	6	5.5	5	5.5	5.5	1.5
+mxx3	4.2	2.8	4.9	3.966666667	4	0
+mxx4	2.5	3.9	4.1	3.5	3.5	-0.5
+mxx5	4.1	4	3.8	3.966666667	4	0
+						
+Durchschnitt		4.2				
+Anzahl ungenügende Noten		0				
+Minuspunkte		1				
+Bestanden?		YES				
