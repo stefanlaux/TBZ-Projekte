@@ -1,0 +1,6 @@
+Wir haben eine CSV Datei in eine JSON Datei umgewandelt.
+
+JSON ist viel unübersichtlicher als CSV trotzdem ist 
+JSON besser strukturiert als CSV da man ja auch Datentypen 
+festlegen kann.
+Trotzdem finde ich das man die CSV besser ansehen kann und es verständlicher ist.
