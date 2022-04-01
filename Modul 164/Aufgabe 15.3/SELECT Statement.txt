@@ -1,0 +1,1 @@
+SELECT m.firstname AS 'Vorname', m.lastname AS 'Nachname', c.titel AS 'Titel', e.firstname AS 'V.Vorname', e.lastname AS 'V.Nachname', q.titel AS 'V.Titel' FROM mitarbeiter e RIGHT JOIN mitarbeiter m ON e.idMitarbeiter = m.vorgesetzer LEFT JOIN titel q ON q.idTitel = e.fk_titel LEFT JOIN titel c ON m.fk_titel = c.idTitel;

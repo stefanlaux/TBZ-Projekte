@@ -1,0 +1,66 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema aufgabe15.3.22
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema aufgabe15.3.22
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `aufgabe15.3.22` DEFAULT CHARACTER SET utf8mb4 ;
+USE `aufgabe15.3.22` ;
+
+-- -----------------------------------------------------
+-- Table `aufgabe15.3.22`.`titel`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `aufgabe15.3.22`.`titel` ;
+
+CREATE TABLE IF NOT EXISTS `aufgabe15.3.22`.`titel` (
+  `idTitel` INT(11) NOT NULL,
+  `titel` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`idTitel`),
+  UNIQUE INDEX `titel_UNIQUE` (`titel` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `aufgabe15.3.22`.`mitarbeiter`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `aufgabe15.3.22`.`mitarbeiter` ;
+
+CREATE TABLE IF NOT EXISTS `aufgabe15.3.22`.`mitarbeiter` (
+  `idMitarbeiter` INT(11) NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(45) NOT NULL,
+  `lastname` VARCHAR(45) NOT NULL,
+  `vorgesetzer` INT(11) NULL DEFAULT NULL,
+  `fk_titel` INT(11) NOT NULL,
+  PRIMARY KEY (`idMitarbeiter`),
+  UNIQUE INDEX `idMitarbeiter_UNIQUE` (`idMitarbeiter` ASC),
+  INDEX `fk_Mitarbeiter_Mitarbeiter_idx` (`vorgesetzer` ASC),
+  INDEX `fk_mitarbeiter_titel1_idx` (`fk_titel` ASC),
+  CONSTRAINT `fk_Mitarbeiter_Mitarbeiter`
+    FOREIGN KEY (`vorgesetzer`)
+    REFERENCES `aufgabe15.3.22`.`mitarbeiter` (`idMitarbeiter`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_mitarbeiter_titel1`
+    FOREIGN KEY (`fk_titel`)
+    REFERENCES `aufgabe15.3.22`.`titel` (`idTitel`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
