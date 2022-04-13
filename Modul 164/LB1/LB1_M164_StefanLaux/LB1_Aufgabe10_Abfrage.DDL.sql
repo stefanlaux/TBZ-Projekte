@@ -1,0 +1,5 @@
+10.1:
+SELECT p.Vorname AS 'Vorname_Passagier', p.Nachname AS 'Nachname_Passagier', l.Flugplatz AS 'Startort', k.Flugplatz AS 'Landeort' FROM tbl_person p JOIN ztbl_persrap q ON p.id = q.fk_Passagier1 JOIN tbl_flugrapport s ON q.fk_Rapport = s.id JOIN tbl_orte l ON s.fk_Startort = l.id JOIN tbl_orte k ON s.fk_Landeort = k.id;
+
+10.2:
+SELECT f.Vorname AS'Vorname_Pilot',f.Nachname AS'Nachname_Pilot', p.Vorname AS 'Vorname_Passagier', p.Nachname AS 'Nachname_Passagier', l.Flugplatz AS 'Startort',s.Startdatum, k.Flugplatz AS 'Landeort',s.Landedatum, r.Flugart FROM tbl_person p JOIN ztbl_persrap q ON p.id = q.fk_Passagier1 JOIN tbl_flugrapport s ON q.fk_Rapport = s.id JOIN tbl_orte l ON s.fk_Startort = l.id JOIN tbl_orte k ON s.fk_Landeort = k.id LEFT JOIN tbl_flugart r ON s.fk_Flugart = r.Flugart LEFT JOIN tbl_person f ON s.fk_Pilotierend = f.id;

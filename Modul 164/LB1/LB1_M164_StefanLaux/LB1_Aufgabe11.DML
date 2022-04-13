@@ -1,0 +1,86 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Erstellungszeit: 22. Mrz 2022 um 15:03
+-- Server-Version: 10.4.22-MariaDB
+-- PHP-Version: 7.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `aufgabe11`
+--
+
+--
+-- Daten für Tabelle `anrede`
+--
+
+INSERT INTO `anrede` (`idtable1`, `anrede`) VALUES
+(1, 'Herr'),
+(2, 'Frau'),
+(3, 'Andere');
+
+--
+-- Daten für Tabelle `artikel`
+--
+
+INSERT INTO `artikel` (`idtable1`, `name`, `art`) VALUES
+(1, 'Headset', 'Gaming'),
+(2, 'Notizblock', 'Büro'),
+(3, 'Gamingtastatur', 'Gaming');
+
+--
+-- Daten für Tabelle `bestellposition`
+--
+
+INSERT INTO `bestellposition` (`idBestellposition`, `Artikel_idtable1`, `ort`) VALUES
+(1, 3, 'Stadelhofen'),
+(2, 1, 'Hardbrücke'),
+(3, 2, 'Altstetten');
+
+--
+-- Daten für Tabelle `bestellung`
+--
+
+INSERT INTO `bestellung` (`idBestellung`, `Kunde_idKunde`, `Grund`, `Bestellposition_idBestellposition`) VALUES
+(1, 1, 'Neues Headset', 2),
+(2, 2, 'Neuer Block', 3);
+
+--
+-- Daten für Tabelle `kunde`
+--
+
+INSERT INTO `kunde` (`idKunde`, `Nachname`, `Vorname`, `Anrede_idtable1`) VALUES
+(1, 'Laux', 'Stefan', 1),
+(2, 'Laux', 'Catherine', 2);
+
+--
+-- Daten für Tabelle `kundengruppe`
+--
+
+INSERT INTO `kundengruppe` (`idKundengruppe`, `name`) VALUES
+(1, 'Gamer'),
+(2, 'Bänker');
+
+--
+-- Daten für Tabelle `kundengruppe_has_kunde`
+--
+
+INSERT INTO `kundengruppe_has_kunde` (`Kundengruppe_idKundengruppe`, `Kunde_idKunde`) VALUES
+(1, 1),
+(2, 2);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
